@@ -15,19 +15,35 @@ const domBuilder = {
     </fieldset>
     <fieldset>
     <label for="lego__color">Color:</label>
-    <input id="lego__color" name="lego__color" type="text" autofocus />
     </fieldset>
-    <button class="btn lego__save">Save Lego Creation</button>
     </article>`
 
+    let button = document.createElement("button")
+    button.classList.add("lego__save")
+    let savelego = document.createTextNode("Save Lego")
+    button.appendChild(savelego);
+    button.addEventListener("click", eventlistener.handleFormSubmission);
     let displayContainer = document.querySelector("#display-container");
     displayContainer.innerHTML = inputForm;
+    displayContainer.appendChild(button);
+  },
 
-    // How to create a button, add a class and attach an event listener using createElement.
-    // let newButton = document.createElement("button");
-    // newButton.classList.add("aclass");
-    // newButton.addEventListener("click", eventListeners.handleFormSubmission);
-    // console.log(newButton);
-    // displayContainer.appendChild(newButton);
+  createColor() {
+    data.getColor()
+    .then (colors => {
+      let colorHTML = "";
+      colors.forEach(color => {
+        colorHTML += `<option value = ${color.id}>${color.name}</option>`
+      })
+      let dropDown = document.querySelector(".lego__save");
+      dropDown.innerHTML = colorHTML;
+    })
   }
 }
+
+// How to create a button, add a class and attach an event listener using createElement.
+// let newButton = document.createElement("button");
+// newButton.classList.add("aclass");
+// newButton.addEventListener("click", eventListeners.handleFormSubmission);
+// console.log(newButton);
+// displayContainer.appendChild(newButton);

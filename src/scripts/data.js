@@ -7,16 +7,10 @@ const data = {
     },
     body: JSON.stringify(legoToSave)
     })
-  }
-  // deleteLego (legoId) {
-  //   fetch(`http://localhost:8088/legos/${legoId}`, {
-  //   method: "DELETE",
-  //   headers: {
-  //       "Content-Type": "application/json"
-  //   }
-  //   })
-  // }
-};
+  },
+  colorLego (colorValue) {
+    fetch(`"http://localhost:8088/colors/${colorValue}"`)
+    .then
 
-// data.deleteLego(2);
-// data.deleteLego(3);
+  }
+}

@@ -1,4 +1,4 @@
 domBuilder.appendInputForm();
+domBuilder.create();
 let legoBtn = document.querySelector(".lego__save");
-// console.log(legoBtn);
-legoBtn.addEventListener("click", eventListeners.handleFormSubmission);
+
